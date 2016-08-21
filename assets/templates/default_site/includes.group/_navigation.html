@@ -1,0 +1,96 @@
+<header id="main-header" class="et-fixed-header">
+        <div id="social-top">
+            <div class="container clearfix">
+                <div class="free-shipping">
+                    FREE SHIPPING for all Smart Cleanse orders Australia Wide!
+                </div>
+                <ul id="et-social-icons">
+                  <li class="et-social-icon"><a class="facebook-link" href="{var_facebook}" target="_blank">facebook</a></li>
+                  <li class="et-social-icon"><a class="twitter-link" href="{var_twitter}" target="_blank">twitter</a></li>
+                  <li class="et-social-icon"><a class="instagram-link" href="{var_instagram}" target="_blank">instagram</a></li>
+                  <li class="et-social-icon"><a class="youtube-link" href="{var_youtube}" target="_blank">youtube</a></li>
+                  <li class="et-social-icon"><a class="pinterest-link" href="{var_pinterest}" target="_blank">pinterest</a></li>
+                  <li class="et-social-icon"><a class="linkedin-link" href="{var_linkedin}" target="_blank">linkedin</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container clearfix">
+            <a href="/">
+                <img src="/assets/images/smart_cleanse_logo_big.png" alt="Smart Cleanse" id="logo">
+            </a>
+            <div id="et-top-navigation">
+                <nav id="cart-account">
+                    <div class="btn-wrap">
+                        {if logged_in}
+                            <a class="button" href="/member/my-account">My Account</a>
+                            <a class="button" href="{path='logout'}">Logout</a>
+                        
+                        {/if}
+                        {if logged_out}
+                            <a class="button login" href="#login-wrap">Login</a>
+                        {/if}
+                    </div>
+                    <a href="/cart" class="cart-link"></i>Cart {exp:cartthrob:cart_items_info}({if no_results}(0){/if}{total_items}){/exp:cartthrob:cart_items_info}</a></li>
+                </nav>
+                <nav id="top-menu-nav">
+                    <ul id="top-menu" class="nav">
+                        <li class="{if segment_1 ==''}current-menu-item{/if}"><a href="/">Home</a></li>
+                        <li class="{if segment_1 =='product'}current-menu-item{/if}">
+                            <a href="/product/14-day-smart-cleanse">14 Day Smart Cleanse</a>
+                            <ul class="sub-menu">
+                                <li><a href="/product/14-day-smart-cleanse">How it Works</a></li>
+                                <li><a href="/so-what-exactly-is-detoxification">Why Detox</a></li>
+                                <li class="{if segment_1 =='ingredients'}current-menu-item{/if}"><a href="/ingredients">The Ingredients</a></li>
+                            </ul>
+                        </li>
+                        <li class="{if segment_1 =='savannah-daisley-smart-cleanse'}current-menu-item{/if}"><a href="/savannah-daisley-smart-cleanse">About</a></li>
+                        <li class="{if segment_1 =='testimonials'}current-menu-item{/if}"><a href="/testimonials">Testimonials</a></li>
+			<li class="{if segment_1 =='press'}current-menu-item{/if}"><a href="/press">Press</a></li>
+                        <li class="{if segment_1 =='blog'}current-menu-item{/if}"><a href="/blog">Blog</a></li>
+                        <li class="{if segment_1 =='faq'}current-menu-item{/if}"><a href="/faq">FAQ</a></li>
+                        <li class="cart-nav {if segment_1 =='cart'}current-menu-item{/if}"><a href="/cart">Cart {exp:cartthrob:cart_items_info}({if no_results}(0){/if}{total_items}){/exp:cartthrob:cart_items_info}</a></li>
+                        {if logged_in}
+                        <li class="account-nav"><a href="/member/my-account">My Account</a></li>
+                        <li class="account-nav"><a href="{path='logout'}">Logout</a></li>
+
+                        {/if}
+                        {if logged_out}
+                        <li class="account-nav"><a href="/member/login">Login</a></li>
+                        {/if}
+                        <li class="{if segment_1 =='contact'}current-menu-item{/if}"><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="et_top_search">
+                    <span id="et_search_icon"></span>
+                    {exp:search:simple_form
+                        channel="blog|products|faq|full_width_text|text_image_template|profile|ingredients"
+                        where="any"
+                        results="20"
+                        form_class="et-search-form et-hidden"
+                        result_page="/search/results"
+
+                    }
+                    <input type="search" class="et-search-field" placeholder="Search …" value="" name="keywords" title="Search for:">
+                    {/exp:search:simple_form}
+                </div>
+                <div id="et_mobile_nav_menu"><a href="#" class="mobile_nav closed"><span class="mobile_menu_bar"></span>
+                    <ul id="mobile_menu" class="et_mobile_menu">
+                        <li class="current-menu-item"><a href="/">Home</a></li>
+                        <li ><a href="#">About</a>
+                            <ul class="sub-menu">
+                                <li><a href="/savannah-daisley-smart-cleanse">Profile</a></li>
+                                <li><a href="/so-what-exactly-is-detoxification">Why Detox</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/product/14-day-smart-cleanse">14 Day Smart Cleanse</a></li>
+                        <li><a href="/ingredients">Ingredients</a></li>
+                        <li><a href="/testimonials">Testimonials</a></li>
+			<li><a href="/press">Press</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div> <!-- #et-top-navigation -->
+        </div> <!-- .container -->
+</header> <!-- #main-header -->

@@ -1,0 +1,59 @@
+{embed='includes/_doc-header'}
+<body class="home_page page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+<div id="main-content">
+    <article id="post-2" class="post-2 page type-page status-publish hentry">
+        <div class="entry-content">
+
+            {snippet_slider}
+            {snippet_newsletter}
+            {snippet_intro}
+            {snippet_how_why_who}
+            {snippet_see}
+            {snippet_creator}
+            {snippet_testimonials_home}
+            {snippet_newsletter_second}
+
+            <div class="et_pb_section blog_homepage">
+               <div class="gradient_wrapper">
+                    <div class="et_pb_row">
+                    <div class="et_pb_column et_pb_column_4_4">
+                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_center">
+                            <h2><img src="/assets/images/the_clean_life.png" alt=""></h2>
+                            <h3>Inspiration and tips to keep you looking and feeling fabulous</h3>
+                        </div> <!-- .et_pb_text -->
+                    </div> <!-- .et_pb_column -->
+                </div>
+                <div class="et_pb_row">
+                    <div class="et_pb_column et_pb_column_4_4">
+                        <div class="et_pb_blog_grid_wrapper">
+                            <div class="et_pb_blog_grid clearfix et_pb_bg_layout_light masonry">
+                                {exp:channel:entries channel="blog" limit="3"}
+                                <article  class="post type-post status-publish format-standard hentry category-uncategorised et_pb_post masonry-brick" >
+                                    <div class="et_pb_image_container">
+                                        <a href="blog/{url_title}">
+                                        {cf_feature_image}<img src="{url:small_blog}" alt="this is another post" width="400" height="250"></a>{/cf_feature_image}
+                                    </div> <!-- .et_pb_image_container -->
+                                    <h2><a href="blog/{url_title}">{title}</a></h2>
+                                    <!-- <p class="post-meta">by {author} | {entry_date format="%F %d, %Y"} </p>
+                                    <p>{exp:eehive_hacksaw words="10"}{cf_body_copy}{/exp:eehive_hacksaw} <a href="/blog/{url_title}">Read More</a></p> -->
+                                </article> <!-- .et_pb_post -->
+                                {/exp:channel:entries}
+                            </div> <!-- .et_pb_posts -->
+                        </div>
+                    </div> <!-- .et_pb_column -->
+                </div> <!-- .et_pb_row -->
+                <div class="et_pb_row view_all_articles">
+                    <div class="et_pb_column et_pb_column_4_4">
+                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_center">
+                           <a href="blog" class="call_to_action green">View all articles</a>
+                        </div> <!-- .et_pb_text -->
+
+                    </div> <!-- .et_pb_column -->
+                </div>
+            </div>
+
+        </div> <!-- .entry-content -->
+    </article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+{embed='includes/_footer'}

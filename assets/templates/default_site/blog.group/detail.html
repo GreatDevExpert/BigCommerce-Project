@@ -1,0 +1,87 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;" id="blog_single">
+   {embed='includes/_navigation'}
+   <div id="main-content">
+     {embed='includes/_blog-header'}
+     <div class="container">
+        <div id="content-area" class="clearfix">
+            <div id="left-area">
+                {exp:channel:entries channel="blog" disable="categories|member_data|category_fields|pagination" limit="1" require_entry="yes"}
+                {if no_results} {redirect="404"} {/if}
+                <article class="post type-post status-publish format-standard hentry category-uncategorised et_pb_post blog_entry">
+                    <h1>{title}</h1>
+                    <p class="post-meta">{author} | {entry_date format="%F %d, %Y"} </p>
+                    <div class="blog-follow">
+                       <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                        <div class="addthis_horizontal_follow_toolbox"></div>
+
+                    </div>
+                    <img src="{cf_feature_image}" alt="this is another post" width="1080" height="675">
+                    <div class="entry-content">
+                        {cf_body_copy}
+                    </div> <!-- .entry-content -->
+
+                    <div id="newsletter">
+                        {snippet_newsletter_blog}
+                    </div>
+
+                    <section id="comment-wrap">
+                        <div id="comment-section" class="nocomments">
+                            <!-- If comments are open, but there are no comments. -->
+                        </div>
+                        <div id="respond" class="comment-respond">
+                            {exp:comment:entries sort="desc" orderby="date"}
+                            <h3 id="reply-title" class="comment-reply-title">
+                                <span>{count} Comment</span>
+                                <!-- <small><a rel="nofollow" id="cancel-comment-reply-link" href="/nulife_wp/?p=93#respond" style="display:none;">Cancel reply</a></small>-->
+                            </h3>
+                            {if no_results}<h3 id="reply-title" class="comment-reply-title">No Comments Yet</h3>{/if}
+                            <ol class="commentlist clearfix">
+                                {exp:comment:entries sort="desc" orderby="date" dynamic="no"}
+                                {if no_results}{/if}
+                                <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-19">
+                                    <article id="comment-19" class="comment-body clearfix">
+                                        <div class="comment_avatar">
+                                            <img alt="" src="{exp:gravatar email="{email}" size="80" }" class="avatar avatar-80 photo">
+                                        </div>
+                                        <div class="comment_postinfo">
+                                            <span class="fn">{author}</span>
+                                            <span class="comment_date">on {comment_date format="%F %d, %Y"}</span>
+                                        </div> <!-- .comment_postinfo -->
+                                        <div class="comment_area">
+                                            <div class="comment-content clearfix">
+                                                {comment}
+                                                <!--<span class="reply-container"><a class="comment-reply-link" href="/preview/Divi/aliquam-erat-volutpat/?replytocom=19#respond" onclick="return addComment.moveForm(&quot;comment-19&quot;, &quot;19&quot;, &quot;respond&quot;, &quot;237&quot;)">Reply</a></span>-->
+                                            </div> <!-- end comment-content-->
+                                        </div> <!-- end comment_area-->
+                                    </article> <!-- .comment-body -->
+                                </li><!-- #comment-## -->
+                                {/exp:comment:entries}
+                            </ol>
+
+                            
+
+                            {exp:comment:form channel="blog" id="commentform" class="comment-form"}
+                                <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+                                <p class="comment-form-author"><label for="author" style="display: none;">Name <span class="required">*</span></label> <input id="author" name="name" type="text" value="" size="30" aria-required="true"></p>
+                                <p class="comment-form-email"><label for="email" style="display: none;">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" data-parsley-type="email" data-parsley-required="true" ></p>
+                                <p class="comment-form-url"><label for="url" style="display: none;">Website</label> <input id="url" name="url" type="text" value="" size="30"></p>
+                                <p class="comment-form-comment"><label for="comment" style="display: none;">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" data-parsley-required="true"></textarea></p>                       <p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>                        <p class="form-submit">
+                                    <input name="submit" type="submit" id="submit" value="Submit Comment">
+                                    <input type="hidden" name="comment_post_ID" value="93" id="comment_post_ID">
+                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                </p>
+                                <p id="honeepot"><label for="honeepot">Honeepot </label><input id="honeepot" name="honeepot" type="text" value="" /></p>
+                            {/exp:comment:form}
+                        </div><!-- #respond -->
+                    </section>
+                </article> <!-- .et_pb_post -->
+            {/exp:channel:entries}
+        </div> <!-- #left-area -->
+        {embed='includes/_sidebar'}
+    </div> <!-- #content-area -->
+</div> <!-- .container -->
+</div>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5490cd0c140d3179" async="async"></script>
+{embed='includes/_footer'}

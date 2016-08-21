@@ -1,0 +1,98 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-77 page-template-default woocommerce-checkout woocommerce-page et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar et_includes_sidebar">
+ {embed='includes/_navigation'}
+ <div id="main-content">
+    <article id="post-77" class="post-77 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                    <div class="et_pb_row">
+                        <h1>Register</h1>
+                    </div>
+                </section>
+            </div> <!-- .et_pb_section --><div class="et_pb_section">
+            <div class="et_pb_row">
+                <div class="et_pb_column et_pb_column_4_4">
+                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                        <div class="woocommerce">
+
+                        {exp:profile:register
+                            return="cart/submit"
+                        }
+                    <div  id="customer_details">
+                        <div class="col-1">
+                            <div class="woocommerce-billing-fields">
+                                <h3>Personal Details</h3>
+                                <p class="form-row form-row-wide address-field">
+                                    <label for="billing_country">Country <abbr class="required" title="required">*</abbr></label>
+                                    {exp:cartthrob:country_select name="country_code" id="billing_country"}
+                                </p>
+                                <p class="form-row form-row-first" id="billing_first_name_field">
+                                    <label for="billing_first_name">First Name <abbr class="required" title="required">*</abbr>
+                                    <input type="text" class="input-text " name="member_first_name" id="member_first_name" value="" data-parsley-required="true" /></p>
+                                    <p class="form-row form-row-last">
+                                        <label for="billing_last_name" >Last Name <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_last_name" id="billing_last_name" value="" data-parsley-required="true"  />
+                                    </p><div class="clear"></div>
+                                    <p class="form-row form-row-wide">
+                                        <label for="billing_company">Company Name</label>
+                                        <input type="text" class="input-text " name="member_company" id="billing_company" value=""  />
+                                    </p>
+                                    <p class="form-row form-row-wide address-field">
+                                        <label for="billing_address_1">Address <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_address" id="billing_address_1" placeholder="Street address"  value=""  data-parsley-required="true"/>
+                                    </p>
+                                    <p class="form-row form-row-wide address-field">
+                                        <input type="text" class="input-text " name="member_address2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)"  value=""  />
+                                    </p>
+                                    <p class="form-row form-row-wide address-field" >
+                                        <label for="billing_city">Town / City <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_city" id="billing_city" placeholder="Town / City"  value="" data-parsley-required="true" />
+                                    </p>
+                                    <p class="form-row form-row-first address-field" >
+                                        <label for="member_state">State / County <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_state" value="" data-parsley-required="true"/>
+                                    </p>
+                                    <p class="form-row form-row-last address-field">
+                                        <label for="member_zip">Postcode / Zip <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_zip" id="billing_postcode" placeholder="Postcode / Zip"  value="" data-parsley-required="true" />
+                                    </p><div class="clear"></div>
+
+                                    <p class="form-row form-row-first validate-required">
+                                        <label for="billing_email">Email Address <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="email" id="email" value="" data-parsley-type="email" data-parsley-required="true" />
+                                    </p>
+                                    <p class="form-row form-row-last validate-required">
+                                        <label for="billing_phone">Phone <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_phone" id="member_phone" value="" data-parsley-required="true" />
+                                    </p>
+                                    <div class="clear"></div>
+                                    <p>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="clear"></div>
+                            <div class="col-1">
+                                <h3>Profile</h3>
+                                <input type="hidden" value="yes" name="create_member" class="create_member">
+
+                                <p class="form-row form-row-first"><label for="password">Password<abbr class="required" title="required">*</abbr></label>
+                                    <input type="password" class="input-text " name="password" data-parsley-required="true"/>
+                                </p>
+                                <p class="form-row form-row-last" id="shipping_last_name_field"><label for="password_confirm">Confirm Password<abbr class="required" title="required">*</abbr></label>
+                                    <input type="password" class="input-text " name="password_confirm" data-parsley-required="true"/>
+                                </p>
+                            </div>
+                            <div class="clear"></div>
+                            <input type="submit" class="button alt" value="Create Account" />
+                            {/exp:profile:register}
+                        </div>
+                    </div> <!-- .et_pb_text -->
+                </div> <!-- .et_pb_column -->
+            </div> <!-- .et_pb_row -->
+        </div> <!-- .et_pb_section -->
+    </div> <!-- .entry-content -->
+</article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+{embed='includes/_footer'}

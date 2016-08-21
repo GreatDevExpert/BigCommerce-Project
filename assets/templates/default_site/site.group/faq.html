@@ -1,0 +1,42 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        <article id="post-102" class="post-102 page type-page status-publish hentry">
+            <div class="entry-content">
+                {exp:channel:entries channel="faq" disable="categories|member_data|category_fields|pagination" limit="1" require_entry="yes"}
+                {if no_results} {redirect="404"} {/if}
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>{title}</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section -->
+                <div class="et_pb_section">
+                    <div class="et_pb_row">
+                        {grid_faq}
+                        <div class="et_pb_column et_pb_column_4_4">
+                            <div class="et_pb_toggle et_pb_toggle_close">
+                                <h5 class="et_pb_toggle_title">{grid_faq:question}</h5>
+                                <div class="et_pb_toggle_content clearfix">
+                                    {grid_faq:answer}
+                                </div> <!-- .et_pb_toggle_content -->
+                            </div> <!-- .et_pb_toggle -->
+                        </div> <!-- .et_pb_column -->
+                        {/grid_faq}
+                    </div> <!-- .et_pb_row -->
+                </div> <!-- .et_pb_section -->
+                <div class="et_pb_section faq_banner" >
+                    <div class="et_pb_row">
+                        <div class="et_pb_column et_pb_column_4_4 et_pb_text_align_center">
+                            <img class="slide_overlay_img" src="/assets/images/14days.png" alt="">
+                            <div><a href="/product/14-day-smart-cleanse" class="button">Buy now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- .entry-content -->
+            {/exp:channel:entries}
+        </article> <!-- .et_pb_post -->
+    </div> <!-- #main-content -->
+{embed='includes/_footer'}

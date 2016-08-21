@@ -1,0 +1,43 @@
+%%Panel.Preheader%%
+<head>
+    <style type = 'text/css'>
+        p.InfoMessage
+        {
+        padding:20px;
+        padding-left:45px;
+        }
+    </style>
+</head>
+<body class = 'page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome' style='padding-top: 80px;'>
+    
+    <script type="text/javascript" src="%%GLOBAL_CdnAppPath%%/javascript/express.checkout.js?%%GLOBAL_JSCacheToken%%"></script>
+        <div class="page">
+            %%Panel.Newheader%%
+            <div class="main">
+                <div class="inner">
+                    %%Panel.WrapperBanner%%
+                    %%Panel.CategoryBreadcrumb%%
+                    <div class="productlist-page">
+                        %%Banner.TopBanner%%
+                        %%Panel.CategoryHeading%%
+                        <div class="Left fleft">
+                            %%SNIPPET_SubCategories%%
+                            %%Panel.SideCategoryShopByPrice%%
+                        </div>
+                        <div class="Content Wide %%GLOBAL_ExtraCategoryClass%%" id="LayoutColumn1">
+                            <div class="product-nav">
+                                %%SNIPPET_CategorySortBox%%
+                                %%Panel.CategoryPagingTop%%
+                                <div class="clear"></div>
+                            </div>
+                            %%Panel.CategoryContent%%
+                        </div>
+                        <div class="clear"></div>
+                        %%Banner.BottomBanner%%
+                    </div>
+                </div>
+            </div>
+            %%Panel.Newfooter%%
+        </div>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-77 page-template-default woocommerce-checkout woocommerce-page et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar et_includes_sidebar">
+ {embed='includes/_navigation'}
+ <div id="main-content">
+    <article id="post-77" class="post-77 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                    <div class="et_pb_row">
+                        <h1>Order Confirmation</h1>
+                    </div>
+                </section>
+            </div> <!-- .et_pb_section -->
+            <div class="et_pb_section">
+            <div class="et_pb_row">
+                <div class="et_pb_column et_pb_column_4_4">
+                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                        <div class="woocommerce">
+                        {exp:cartthrob:submitted_order_info}
+                            {if authorized}
+                            <h3>Your payment was successfull!</h3>
+                            <p>Transaction ID: {transaction_id}</p>
+                            <p>Your total: {cart_total}</p>
+                            <p>Your order ID: {order_id}</p>
+                            <p><a href="https://smartcleanse.com.au/assets/offer/Smart_Cleanse_Food_Exercise_Diary.pdf"><img src="http://smartcleanse.com.au/assets/images/button.png"></a></p>
+
+                        {if:elseif declined}
+                            <p>Your credit card was declined: {error_message}</p>
+                        {if:elseif failed}
+                            <p>Your payment failed: {error_message}</p>
+
+                        {/if}
+                            <script>
+                                var products = [
+                                 {
+                                   'sku': '1',
+                                   'name': '14 Day Smart Cleanse',
+                                   'category': 'uncategorised',
+                                   'price': 149.95,
+                                   'quantity': {order_items:total_results}
+                                 }
+                                ];
+                                var dataLayer = [];
+                                _gaq.push(['_addTrans',
+                                  'event': 'ecomEvent',
+                                  'transactionId': '{order_id}',
+                                  'transactionAffiliation': 'Smartcleanse.com.au',
+                                  'transactionTotal': {cart_total},
+                                  'transactionTax': {tax},
+                                  'transactionShipping': {shipping},
+                                  'transactionCity': '{exp:cartthrob:cart_info}{order_billing_city}{/exp:cartthrob:cart_info}',
+                                  'transactionState': '{order_billing_state}',
+                                  'transactionCountry': '{exp:cartthrob:cart_info}{order_shipping_country_code}{/exp:cartthrob:cart_info}',
+                                  'transactionProducts': products,
+                                  'promocode':'{coupon_codes}'
+
+                                ]);
+                            </script>
+                            <script type="text/javascript">
+                            {exp:cartthrob:submitted_order_info}
+                            var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-53474779-1']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_addTrans',
+'{title}',                      // order ID - required
+'{site_name}',                  // affiliation or store name
+'{cart_total}',                 // total - required
+'{ct_order_tax}',               // tax
+'{ct_order_shipping_cost}',     // shipping
+'{cf_order_billing_city}',      // city
+'{cf_order_billing_county}',    // state or province
+'{cf_order_billing_country}'    // country
+]);
+// add item might be called for every item in the shopping cart
+// where your ecommerce engine loops through each item in the cart and
+// prints out _addItem for each
+
+{exp:cartthrob:order_items order_id="{order_id}"}
+_gaq.push(['_addItem',
+'{title}',           // order ID - required
+'{item:entry_id}',   // SKU/code - required
+'{item:title}',      // product name
+'',                  // category or variation
+'{item:price}',      // unit price - required
+'{item:quantity}'    // quantity - required
+]);
+{/exp:cartthrob:order_items}
+_gaq.push(['_trackTrans']); //submits transaction to the Analytics servers
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+{/exp:cartthrob:submitted_order_info}
+</script>
+
+<!-- Facebook Conversion Code for Order Confirmation -->
+<script>(function() {
+var _fbq = window._fbq || (window._fbq = []);
+if (!_fbq.loaded) {
+var fbds = document.createElement('script');
+fbds.async = true;
+fbds.src = '//connect.facebook.net/en_US/fbds.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(fbds, s);
+_fbq.loaded = true;
+}
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6034791489294', {'value':'0.00','currency':'AUD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6034791489294&cd[value]=0.00&cd[currency]=AUD&noscript=1" /></noscript>
+                        {/exp:cartthrob:submitted_order_info}
+                        </div>
+                    </div> <!-- .et_pb_text -->
+                </div> <!-- .et_pb_column -->
+            </div> <!-- .et_pb_row -->
+        </div> <!-- .et_pb_section -->
+    </div> <!-- .entry-content -->
+</article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+{embed='includes/_footer'}

@@ -1,0 +1,37 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        {exp:channel:entries disable="categories|member_data|category_fields|pagination" limit="1" require_entry="yes"}
+        {if no_results} {redirect="404"} {/if}
+        <article id="post-48" class="post-48 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>{title}</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section -->
+                <div class="et_pb_section">
+                    <div class="et_pb_row">
+                        <div class="et_pb_column et_pb_column_1_3">
+                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                {cf_left_column}
+                                <br>
+                                <p>
+                                    {embed="/includes/_buy_now"}
+                                </p>
+                            </div> <!-- .et_pb_text -->
+                        </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_2_3">
+                        {cf_right_column_image} <img src="{url}" alt="{title}" class="et-waypoint et_pb_image et_pb_animation_left et-animated">{/cf_right_column_image}
+                    </div> <!-- .et_pb_column -->
+                </div> <!-- .et_pb_row -->
+            </div>
+        </div> <!-- .entry-content -->
+    </article> <!-- .et_pb_post -->
+    {/exp:channel:entries}
+</div>
+</div> <!-- .container -->
+</div>
+{embed='includes/_footer'}

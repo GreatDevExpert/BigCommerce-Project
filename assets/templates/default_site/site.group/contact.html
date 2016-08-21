@@ -1,0 +1,70 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        <article id="post-99" class="post-99 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header" >
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>Contact Us</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section -->
+                <div class="et_pb_section">
+                    <div class="et_pb_row">
+                        <div class="et_pb_column et_pb_column_1_2">
+                            <div id="et_pb_contact_form_1" class="et_pb_contact_form_container clearfix">
+                                {exp:channel:entries channel="contact" disable="categories|member_data|category_fields|pagination"}
+                                {cf_intro_message}
+                                <br>
+                                <br>
+                                <div class="et_pb_contact">
+                                 {exp:freeform:form
+
+
+                                        form_id="1"
+                                        required="name|email|user_message"
+                                        return="/contact/thanks-for-contacting-us"
+                                        notify_user="yes"
+                                        user_notification_template="user_notification"
+                                        user_email_field="email"
+                                        notify_admin="yes"
+                                        admin_notification_template="admin_notification"
+                                    }
+                                        <div class="et_pb_contact_left">
+                                            <p class="clearfix">
+                                                <label class="et_pb_contact_form_label">Name</label>
+                                                <input type="text" class="input et_pb_contact_name" value="" name="name" data-parsley-required="true">
+                                            </p>
+                                            <p class="clearfix">
+                                                <label class="et_pb_contact_form_label">Email Address</label>
+                                                <input type="text" class="input et_pb_contact_email" value="" name="email" data-parsley-type="email" data-parsley-required="true" >
+                                            </p>
+                                        </div> <!-- .et_pb_contact_left -->
+
+                                        <div class="clear"></div>
+                                        <p class="clearfix">
+                                            <label class="et_pb_contact_form_label">Message</label>
+                                            <textarea name="user_message" class="et_pb_contact_message input" data-parsley-required="true"></textarea>
+                                        </p>
+                                        <input type="hidden" value="et_contact_proccess" name="et_pb_contactform_submit">
+                                        <input type="submit" value="Submit" class="et_pb_contact_submit">
+                                        <p id="honeepot"><label for="honeepot">Honeepot </label><input id="honeepot" name="honeepot" type="text" value="" /></p>
+                                     {/exp:freeform:form}
+                                </div> <!-- .et_pb_contact -->
+                            </div> <!-- .et_pb_contact_form_container -->
+                        </div> <!-- .et_pb_column -->
+                        <div class="et_pb_column et_pb_column_1_4">
+                             {cf_contact_information}
+                        </div> <!-- .et_pb_column -->
+                        <div class="et_pb_column et_pb_column_1_4">
+                            {cf_location_and_hours}
+                        </div> <!-- .et_pb_column -->
+                </div> <!-- .et_pb_row -->
+</div>
+</div> <!-- .entry-content -->
+{/exp:channel:entries}
+</article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+{embed='includes/_footer'}

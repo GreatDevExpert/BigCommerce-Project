@@ -1,0 +1,69 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+     <div id="main-content">
+        <article id="post-79" class="post-79 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center ">
+                        <div class="et_pb_row">
+                            <h1>My Account - Shipping Address</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section --><div class="et_pb_section">
+                <div class="et_pb_row">
+                    <div class="et_pb_column et_pb_column_2_3">
+                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                            <div class="woocommerce">
+                                {exp:profile:edit return="/member/my-account/"}
+                                    <h3>Shipping Address</h3>
+                                    <p class="form-row form-row-wide address-field">
+                                        <label for="billing_country">Country <abbr class="required" title="required">*</abbr></label>
+                                        {exp:cartthrob:country_select name="member_shipping_country_code" id="billing_country" selected="{member_shipping_country_code}" }
+                                    </p>
+                                    <p class="form-row form-row-first">
+                                        <label for="member_shipping_first_name">First Name <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_shipping_first_name" id="member_shipping_first_name" value="{member_shipping_first_name}"   data-parsley-required="true"/></p>
+                                    <p class="form-row form-row-last validate-required" id="billing_last_name_field">
+                                        <label for="member_shipping_last_name">Last Name <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_shipping_last_name" id="member_shipping_last_name" value="{member_shipping_last_name}"   data-parsley-required="true"/>
+                                    </p><div class="clear"></div>
+                                    <p class="form-row form-row-wide">
+                                        <label for="member_shipping_company">Company Name</label>
+                                        <input type="text" class="input-text " name="member_shipping_company" id="member_shipping_company" value="{member_shipping_company}"  />
+                                    </p>
+                                    <p class="form-row form-row-wide address-field validate-required">
+                                        <label for="member_shipping_address">Address <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_shipping_address" id="member_shipping_address" placeholder="Street address"  value="{member_shipping_address}"   data-parsley-required="true"/>
+                                    </p>
+                                    <p class="form-row form-row-wide address-field">
+                                        <input type="text" class="input-text " name="member_shipping_address2" id="member_shipping_address2" placeholder="Apartment, suite, unit etc. (optional)"  value="{member_shipping_address2}"  />
+                                    </p>
+                                    <p class="form-row form-row-wide address-field validate-required" id="billing_city_field">
+                                        <label for="member_shipping_city">Town / City <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_shipping_city" id="member_shipping_city" placeholder="Town / City"  value="{member_shipping_city}"   data-parsley-required="true"/>
+                                    </p>
+                                    <p class="form-row form-row-first address-field validate-required validate-state" id="billing_state_field">
+                                        <label for="member_shipping_state" class="">State / County <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" name="member_shipping_state" id="member_shipping_state"  value="{member_shipping_state}" data-parsley-required="true">
+                                    </p>
+                                    <p class="form-row form-row-last address-field validate-required validate-postcode">
+                                        <label for="member_shipping_zip">Postcode / Zip <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_shipping_zip" id="member_shipping_zip" placeholder="Postcode / Zip"  value="{member_shipping_zip}"  data-parsley-required="true" />
+                                    </p>
+                                    <div class="clear"></div>
+                                    <p>
+                                        <input type="submit" class="button" name="save_address" value="Save Address" />
+                                        <a href="/member/my-account" class="back">cancel</a>
+                                    </p>
+                                {/exp:profile:edit}
+                            </div>
+                        </div> <!-- .et_pb_text -->
+                    </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3">
+                </div> <!-- .et_pb_column -->
+            </div> <!-- .et_pb_row -->
+        </div> <!-- .et_pb_section -->
+    </div> <!-- .entry-content -->
+</article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+{embed='includes/_footer'}

@@ -1,0 +1,103 @@
+<header id="main-header" class="et-fixed-header">
+    <div id = 'top_menu' style = 'display:none'>
+        %%Panel.TopMenu%%
+    </div>
+    
+    
+    
+    <div id="social-top">
+        <div class="container clearfix">
+            <div class="free-shipping">
+                FREE SHIPPING for all Smart Cleanse orders Australia Wide!
+            </div>
+            <ul id="et-social-icons">
+                <li class="et-social-icon"><a class="facebook-link" href="https://www.facebook.com/pages/Smart-Cleanse/567690466662079" target="_blank">facebook</a></li>
+                <li class="et-social-icon"><a class="twitter-link" href="https://twitter.com/SmartCleanse" target="_blank">twitter</a></li>
+                <li class="et-social-icon"><a class="instagram-link" href="http://instagram.com/smartcleanse" target="_blank">instagram</a></li>
+                <li class="et-social-icon"><a class="youtube-link" href="https://www.youtube.com/channel/UCSdrBRwv1JF0xRM4ii2Mkow/feed" target="_blank">youtube</a></li>
+                <li class="et-social-icon"><a class="pinterest-link" href="http://www.pinterest.com/savannahdaisley/" target="_blank">pinterest</a></li>
+                <li class="et-social-icon"><a class="linkedin-link" href="http://www.linkedin.com/pub/savannah-daisley-bhsc-nd/47/296/595" target="_blank">linkedin</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <a href="/">
+            <img src="/template/assets/images/smart_cleanse_logo_big.png" alt="Smart Cleanse" id="logo">
+        </a>
+        <div id="et-top-navigation">
+            <nav id="cart-account">
+                
+                <div class="btn-wrap">
+                    <script>
+                        
+                        if (document.getElementById('login_text').innerText != 'Sign out')
+                        {
+                        document.write("<a class='button login' href='#login-wrap' id = 'loggedout_area' >Login / Register</a>");
+                        }
+                        else
+                        {
+                        document.write('<span><a class="button logout" href="/account.php" style = "margin-right:20px">My Account</a>');
+                        document.write('<a class="button account" href="login.php?action=logout">Log out</a></span>');
+                        
+                        }
+                    </script>
+                </div>
+                <a href="/cart.php" class="cart-link"></i>View Cart</a></li>
+            </nav>
+            <nav id="top-menu-nav">
+                <ul id="top-menu" class="nav">
+                    <li class="current-menu-item"><a href="/">Home</a></li>
+                    <li class="">
+                        <a href="/14-day-smart-cleanse">14 Day Smart Cleanse</a>
+                        <ul class="sub-menu">
+                            <li><a href="/14-day-smart-cleanse">How it Works</a></li>
+                            <li><a href="/so-what-exactly-is-detoxification">Why Detox</a></li>
+                            <li class=""><a href="/ingredients">The Ingredients</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a href="/savannah-daisley-smart-cleanse">About</a></li>
+                    <li class=""><a href="/testimonials">Testimonials</a></li>
+                    <li class=""><a href="/press">Press</a></li>
+                    <li class=""><a href="/blog">Blog</a></li>
+                    <li class=""><a href="/faq">FAQ</a></li>
+                    <li class="cart-nav "><a href="/cart.php">View Cart</a></li>
+                    <li class="account-nav"><a href="/login.php?action=login_check">Login</a></li>
+                    <li class=""><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="et_top_search">
+                <span id="et_search_icon"></span>
+                <form class="et-search-form et-hidden" action="/search.php" method="get" onsubmit="return check_small_search_form()"  >
+                    <div class='hiddenFields'>
+                        <input type="hidden" name="ACT" value="6" />
+                        <input type="hidden" name="RES" value="20" />
+                        <input type="hidden" name="meta" value="OxEedsfKhRGWcDjgIA78OWN2HyMM+t4SgcbDVoWdc67aS1uCA9s/J12gteAaZylAfRuoM6OivPLzQ5MaJg4Mb/exd2MW3e3TwjcPrUxqYMAHdsvI09QH3SCU0Zak7ubIOBcasBDBIvz9ZMXhq1F9sMTVRafiZkRUqKR5IMFP84WzocVOwwtVFTXI6bnOljZa2leeu9jwBQMcdxNDUlUigFyvaA9tDaLKydDriUUgr2DK+2zRxXOWPi64w96L4CFCk2kC85kw2/fxYhTS/oeblFa1znfV83YyzHixs3VE2Oly0TkLrE4BXkMiXhznlt9TgmcYDg+zrPyKNcFv+0X4+0X4uuPQpLH2WBIivvdiRND99ZXINtPusffwXjuH9D+zXeaDGkZ/OwQGvheJeGiNH6OcKJw/VZj9Hicj1dtSB2k=" />
+                        <input type="hidden" name="site_id" value="1" />
+                        <input type="hidden" name="csrf_token" value="3d66028aeecc8a25d90fb2bd3027d13276cfac02" />
+                    </div>
+                    
+                    
+                    <input type="search" class="et-search-field" placeholder="Search …" value="" name="keywords" title="Search for:">
+                </form>
+            </div>
+            <div id="et_mobile_nav_menu"><a href="#" class="mobile_nav closed"><span class="mobile_menu_bar"></span>
+                <ul id="mobile_menu" class="et_mobile_menu">
+                    <li class="current-menu-item"><a href="/">Home</a></li>
+                    <li ><a href="#">About</a>
+                        <ul class="sub-menu">
+                            <li><a href="/savannah-daisley-smart-cleanse">Profile</a></li>
+                            <li><a href="/so-what-exactly-is-detoxification">Why Detox</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/product/14-day-smart-cleanse">14 Day Smart Cleanse</a></li>
+                    <li><a href="/ingredients">Ingredients</a></li>
+                    <li><a href="/testimonials">Testimonials</a></li>
+                    <li><a href="/press">Press</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                </a>
+            </div>
+        </div> <!-- #et-top-navigation -->
+    </div> <!-- .container -->
+</header> <!-- #main-header -->

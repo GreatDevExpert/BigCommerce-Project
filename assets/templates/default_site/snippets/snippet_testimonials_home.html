@@ -1,0 +1,25 @@
+<div class="et_pb_section homepage-testimonials">
+    <div class="et_pb_row et_pb_text_align_center">
+        <div class="et_pb_column et_pb_column_4_4">
+            <h2>Testimonials</h2>
+        </div>
+    </div>
+    <div class=" testimonials-wrap et_pb_slider et_pb_slider_no_pagination">
+        {exp:channel:entries channel="testimonials" entry_id="41"}  
+            <div class="et_pb_slides et_pb_row">{grid_testimonials} 
+                {if grid_testimonials:before_after_shot}             
+                <div class="single-testimonial et_pb_slide ">
+                    <div class="et_pb_column et_pb_column_1_2 section-pic ">
+                        {grid_testimonials:before_after_shot}<img src="{url}" alt="">{/grid_testimonials:before_after_shot}
+                    </div> <!-- .et_pb_column -->
+                    <div class="et_pb_column et_pb_column_1_2 section-description">
+                        <p>{grid_testimonials:testimonial}</p>
+                        <p class="et_pb_testimonial_author">{grid_testimonials:author}</p>
+                    </div> <!-- .et_pb_column -->
+                </div>
+                 {/if}
+                {/grid_testimonials}</div>
+        {/exp:channel:entries}
+
+    </div> <!-- .et_pb_row -->
+</div>

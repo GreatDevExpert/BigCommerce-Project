@@ -1,0 +1,43 @@
+%%Panel.Preheader%%
+<head>
+    <style type = 'text/css'>
+        p.InfoMessage
+        {
+        padding:20px;
+        padding-left:45px;
+        }
+    </style>
+</head>
+<body class = 'page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome' style='padding-top: 80px;'>
+    
+    
+    <div class="page">
+        %%Panel.Newheader%%
+            <div class="main">
+                <div class="inner">
+                    %%Panel.WrapperBanner%%
+                    <div class="Block Breadcrumb Moveable Panel" id="AccountBreadcrumb" style = 'display:none'>
+                        <ul>
+                            <li><a href="%%GLOBAL_ShopPathNormal%%/">%%LNG_Home%%</a></li>
+                            <li><a href="%%GLOBAL_ShopPath%%/account.php">%%LNG_YourAccount%%</a></li>
+                            <li>%%LNG_AddShippingAddress%%</li>
+                        </ul>
+                    </div>
+                    <h1 class="TitleHeading" style = 'margin-top:70px'>%%LNG_YourAccount%%</h1>
+                    <div class="full-width page-content">
+                        <div class="Left" id="LayoutColumn1" style = 'display:none'>
+                            %%Panel.SideAccountMenu%%
+                            %%Panel.SideAccountStoreCredit%%
+                        </div>
+                        <div class="Content" id="LayoutColumn2">
+                            %%Panel.AccountOrder%%
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+               
+     %%Panel.Newfooter%%
+
+    </body>
+</html>

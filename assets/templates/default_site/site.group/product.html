@@ -1,0 +1,205 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        {exp:channel:entries channel="products" limit="1" disable="categories|member_data|category_fields|pagination" require_entry="yes"}
+        <article id="post-69" class="post-69 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="et_pb_section product_intro">
+                    <div class="et_pb_row">
+                        <div class="et_pb_column et_pb_column_1_2 product_image">
+                            {file_main_product_image}<img src="{url}" alt="{title}" class="et-waypoint et_pb_image et_pb_animation_left" />{/file_main_product_image}
+                        </div> <!-- .et_pb_column -->
+                        <div class="et_pb_column et_pb_column_1_2">
+                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left ">
+                                {cf_product_intro}
+
+
+
+
+								<div class="new-d">
+
+                                <!-- EDIT HERE (need to keep these dynamic tags and input submit -->
+                                {exp:cartthrob:add_to_cart_form
+                                    entry_id="{entry_id}"
+                                    quantity="1"
+                                    return="cart"
+                                }
+                                <div class="price-wrap">
+                                    <div class="price">$169.95</div>
+									<p>Free shipping australia wide</p>
+                                    <input type="submit" class="call_to_action add_to_cart" value="Add to cart">
+                                </div>
+                                {/exp:cartthrob:add_to_cart_form}
+                                <!-- END EDIT -->
+								<div class="holder">
+									<span class="icon1">&nbsp;</span>
+									<span class="icon2">&nbsp;</span>
+									<span class="card-icon">&nbsp;</span>
+								</div>
+                                <p style="font-size:13px;">FREE DELIVERY WITH TOLL PRIORITY ANYWHERE IN AUSTRALIA (ALLOW 1-3 DAYS). PO BOX ADDRESSES ARE DESPATCHED WITH AUSTRALIA POST.</p>
+								</div>
+
+
+
+
+
+
+                                </div> <!-- .et_pb_text -->
+                            </div> <!-- .et_pb_column -->
+                        </div> <!-- .et_pb_row -->
+
+                    </div> <!-- .et_pb_section -->
+                    <div class="et_pb_section steps_intro">
+                        <div class="et_pb_row dotted_border">
+                            <div class="et_pb_column et_pb_column_4_4">
+                                <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_center">
+                                   <img src="/assets/images/14days_new_you.png" alt="">
+                                </div> <!-- .et_pb_text -->
+                            </div> <!-- .et_pb_column -->
+                        </div> <!-- .et_pb_row -->
+                        <div class="et_pb_row">
+                            <div class="et_pb_column et_pb_column_1_3">
+                                <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                    {cf_steps_intro}
+                                    </div> <!-- .et_pb_text -->
+                                </div> <!-- .et_pb_column -->
+                                <div class="et_pb_column et_pb_column_1_3">
+                                    {file_steps_intro_image_i}<img src="{url}" alt="{title}" class="et-waypoint et_pb_image et_pb_animation_left" />{/file_steps_intro_image_i}
+                                </div> <!-- .et_pb_column -->
+                                <div class="et_pb_column et_pb_column_1_3">
+                                    {file_steps_intro_image_ii}<img src="{url}" alt="{title}" class="et-waypoint et_pb_image et_pb_animation_left" />{/file_steps_intro_image_ii}
+                                </div> <!-- .et_pb_column -->
+                            </div> <!-- .et_pb_row -->
+                        </div> <!-- .et_pb_section -->
+                        <div class="et_pb_section et_pb_fullwidth_section ">
+                            <section class="et_pb_fullwidth_header et_pb_bg_layout_light et_pb_text_align_left steps_header">
+                                <div class="et_pb_row">
+                                    <img src="/assets/images/step_one_header.png" alt="">
+                                    <span class="detox_timeframe">Days 1-7</span>
+                                    <a href="/product/14-day-smart-cleanse" class="button orange">Buy now</a>
+                                </div>
+                            </section>
+                        </div> <!-- .et_pb_section -->
+                        <div class="et_pb_section">
+                            <div class="et_pb_row">
+                                <div class="et_pb_column et_pb_column_4_4">
+                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left detox_step_intro">
+                                        {step_I_intro}
+                                        </div> <!-- .et_pb_text -->
+                                    </div> <!-- .et_pb_column -->
+                                </div> <!-- .et_pb_row -->
+                                {grid_step_I}
+                                <div class="et_pb_row">
+                                    <div class="et_pb_column et_pb_column_4_4">
+                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                            <h3 class="dotted_border" style="color:#{grid_step_I:colour};"><span class="header_ol" style="background: #{grid_step_I:colour}; color:#fff;">{grid_step_I:counter}</span>{grid_step_I:step_header}</h3>
+                                        </div> <!-- .et_pb_text -->
+                                    </div> <!-- .et_pb_column -->
+                                </div> <!-- .et_pb_row -->
+                                <div class="et_pb_row product_container">
+                                    <div class="et_pb_column et_pb_column_1_3">
+                                        {grid_step_I:product_detail_image}<img src="{url}" alt="{title}" class="et-waypoint et_pb_image et_pb_animation_left" />{/grid_step_I:product_detail_image}
+                                    </div> <!-- .et_pb_column -->
+                                    <div class="et_pb_column et_pb_column_1_3">
+                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                            {grid_step_I:column_I}
+                                        </div> <!-- .et_pb_text -->
+                                        </div> <!-- .et_pb_column -->
+                                        <div class="et_pb_column et_pb_column_1_3">
+                                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                                {grid_step_I:column_II}
+                                                </div> <!-- .et_pb_text -->
+                                            </div> <!-- .et_pb_column -->
+                                        </div> <!-- .et_pb_row -->
+                                    </div> <!-- .et_pb_section -->
+                                {/grid_step_I}
+                        <div class="et_pb_section et_pb_fullwidth_section ">
+                            <section class="et_pb_fullwidth_header et_pb_bg_layout_light et_pb_text_align_left steps_header">
+                                <div class="et_pb_row">
+                                    <img src="/assets/images/step_two_header.png" alt="">
+                                    <span class="detox_timeframe">Days 8-14</span>
+                                    <a href="/product/14-day-smart-cleanse" class="button orange">Buy now</a>
+                                </div>
+                            </section>
+                        </div> <!-- .et_pb_section -->
+
+                        <div class="et_pb_section">
+                            {grid_step_II}
+                            <div class="et_pb_row">
+                                <div class="et_pb_column et_pb_column_4_4">
+                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left detox_step_intro">
+                                        {cf_step_II_intro}
+                                    </div> <!-- .et_pb_column -->
+                                </div> <!-- .et_pb_row -->
+                                <div class="et_pb_row">
+                                   <div class="et_pb_column et_pb_column_4_4">
+                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                            <h3 class="dotted_border" style="color:#{grid_step_II:colour};"><span class="header_ol" style="background: #{grid_step_II:colour}; color:#fff;">{grid_step_II:counter}</span>{grid_step_II:step_header}</h3>
+                                        </div> <!-- .et_pb_text -->
+                                    </div> <!-- .et_pb_column -->
+                                </div> <!-- .et_pb_row -->
+                                <div class="et_pb_row product_container">
+                                    <div class="et_pb_column et_pb_column_1_3">
+                                        {grid_step_II:product_detail_image}<img src="{url}" alt="{title}" class="et-waypoint et_pb_image et_pb_animation_left" />{/grid_step_II:product_detail_image}
+                                    </div> <!-- .et_pb_column -->
+                                    <div class="et_pb_column et_pb_column_1_3">
+                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                            {grid_step_II:column_I}
+                                        </div> <!-- .et_pb_text -->
+                                    </div> <!-- .et_pb_column -->
+                                    <div class="et_pb_column et_pb_column_1_3">
+                                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                            {grid_step_II:column_II}
+                                        </div> <!-- .et_pb_text -->
+                                    </div> <!-- .et_pb_column -->
+                                </div> <!-- .et_pb_row -->
+                                {/grid_step_II}
+                                </div> <!-- .et_pb_section -->
+                        <div class="et_pb_section et_pb_fullwidth_section ">
+                            <section class="et_pb_fullwidth_header et_pb_bg_layout_light et_pb_text_align_left steps_header">
+                                <div class="et_pb_row">
+                                    <img src="/assets/images/step_three_header.png" alt="">
+                                    <span class="detox_timeframe">Days 8-14</span>
+                                    <a href="/product/14-day-smart-cleanse" class="button orange">Buy now</a>
+                                </div>
+                            </section>
+                        </div> <!-- .et_pb_section -->
+                        <div class="et_pb_section">
+                            {grid_step_III}
+                            <div class="et_pb_row">
+                                <div class="et_pb_column et_pb_column_4_4">
+                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left detox_step_intro">
+                                        {cf_step_III_intro}
+                                    </div> <!-- .et_pb_text -->
+                                </div> <!-- .et_pb_column -->
+                            </div> <!-- .et_pb_row -->
+                            <div class="et_pb_row">
+                                <div class="et_pb_column et_pb_column_4_4">
+                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                            <h3 class="dotted_border" style="color:#{grid_step_III:colour};"><span class="header_ol" style="background: #{grid_step_III:colour}; color:#fff;">{grid_step_III:counter}</span>{grid_step_III:step_header}</h3>
+                                        </div> <!-- .et_pb_text -->
+                                </div> <!-- .et_pb_column -->
+                            </div> <!-- .et_pb_row -->
+                            <div class="et_pb_row product_container">
+                                <div class="et_pb_column et_pb_column_1_3">
+                                    {grid_step_III:product_detail_image}<img src="{url}" alt="{title}" class="et-waypoint et_pb_image et_pb_animation_left" />{/grid_step_III:product_detail_image}
+                                </div> <!-- .et_pb_column -->
+                                <div class="et_pb_column et_pb_column_1_3">
+                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                        {grid_step_III:column_I}
+                                    </div> <!-- .et_pb_text -->
+                                </div> <!-- .et_pb_column -->
+                                <div class="et_pb_column et_pb_column_1_3">
+                                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                        {grid_step_III:column_II}
+                                    </div> <!-- .et_pb_text -->
+                                </div> <!-- .et_pb_column -->
+                            </div> <!-- .et_pb_row -->
+                            {/grid_step_III}
+                                    </div> <!-- .et_pb_section -->
+                                </div> <!-- .entry-content -->
+                            </article> <!-- .et_pb_post -->
+                            {/exp:channel:entries}
+                        </div> <!-- #main-content -->
+                       {embed='includes/_footer'}

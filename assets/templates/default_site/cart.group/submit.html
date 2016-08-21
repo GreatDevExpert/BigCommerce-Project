@@ -1,0 +1,205 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-77 page-template-default woocommerce-checkout woocommerce-page et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar et_includes_sidebar">
+ {embed='includes/_navigation'}
+ <div id="main-content">
+    <article id="post-77" class="post-77 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                    <div class="et_pb_row">
+                        <h1>Confirm Order/Payment Details</h1>
+                    </div>
+                </section>
+            </div> <!-- .et_pb_section -->
+            <div class="et_pb_section">
+            <div class="et_pb_row">
+                <div class="et_pb_column et_pb_column_4_4">
+                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                        <div class="woocommerce">
+                        <h3>Order Details</h3>
+                        {exp:cartthrob:cart_items_info}
+                        {if no_results}
+                            {redirect="/"}
+                        {/if}
+                        <table class="shop_table">
+                            {if first_row}
+                            <thead>
+                                <tr>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-total">Total</th>
+                                </tr>
+                            </thead>
+                            {/if}
+                            <tfoot>
+                                {exp:cartthrob:coupon_info}
+                                {if no_results}
+                                {/if}
+                                <tr class="shipping">
+                                    <th>Coupon/Discount</th>
+                                    <td>
+                                        {discount_amount}
+                                    </td>
+                                </tr>
+                                {/exp:cartthrob:coupon_info}
+                                <tr class="shipping">
+                                    <th>Shipping and Handling</th>
+                                    <td class="update_shipping">
+                                        <span class="shiping_cost">{cart_shipping}</span>
+                                        {exp:cartthrob:update_cart_form}
+                                        <select name="shipping_option">
+                                            {exp:cartthrob:get_shipping_options}
+                                                <option value="{rate_short_name}" {selected}>{rate_title}</option>
+                                            {/exp:cartthrob:get_shipping_options}
+                                        </select>
+                                        <input type="submit" class="button call_to_action" value="Update"/>
+                                        {/exp:cartthrob:update_cart_form}
+                                    </td>
+                                </tr>
+                                <tr class="shipping">
+                                    <th>Tax (included)</th>
+                                    <td>
+                                        {cart_tax}
+                                    </td>
+                                </tr>
+                                <tr class="order-total">
+                                    <th>Order Total</th>
+                                    <td>
+                                        <strong><span class="amount">{cart_total}</span></strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            {if last_row}
+                            <tbody>
+                                <tr class="cart_item">
+                                    <td class="product-name">
+                                        <strong class="product-quantity">{total_items} &times;</strong>
+                                        {title}
+                                    </td>
+                                    <td class="product-total">
+                                        <span class="amount">{cart_subtotal:plus_tax}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            {/if}
+                        </table>
+                        {/exp:cartthrob:cart_items_info}
+                        {exp:cartthrob:checkout_form
+                            return="cart/order-confirmation"
+                            gateway="{segment_3}"
+                        }
+                        <h3>Shipping Note</h3>
+                        <div class="shipping-note">
+                            <textarea class="input-text " name="order_shipping_note"></textarea>
+                        </div>
+                        <h3>Payment Options</h3>
+                        <ul class="payment_options">
+                            <li class="{if segment_3 == 'anz_egate' OR segment_3 ==''} selected {/if}"><a href="/cart/submit/anz_egate"><img src="/assets/images/iconcards.png" alt=""></a></li>
+                            <li class="{if segment_3 == 'paypal_express'} selected {/if}"><a href="/cart/submit/paypal_express"><img src="/assets/images/Paypal_small.png" alt=""></a></li>
+                        </ul>
+
+                        <input type="hidden" name="use_billing_info" value="{use_billing_info}"/>
+                        <input type="hidden" name="first_name" value="{first_name}" />
+                        <input type="hidden" name="last_name" value="{last_name}" />
+                        <input type="hidden" name="address" value="{address}" />
+                        <input type="hidden" name="city" value="{city}" />
+                        <input type="hidden" name="state" value="{state}" />
+                        <input type="hidden" name="zip" value="{zip}" />
+                        <input type="hidden" name="phone" value="{phone}" />
+                        <input type="hidden" name="email_address" value="{email_address}" />
+
+                        <input type="hidden" name="shipping_first_name" value="{shipping_first_name}" />
+                        <input type="hidden" name="shipping_last_name" value="{shipping_last_name}" />
+                        <input type="hidden" name="shipping_address" value="{shipping_address}" />
+                        <input type="hidden" name="shipping_city" value="{shipping_city}" />
+                        <input type="hidden" name="shipping_state" value="{shipping_state}" />
+                        <input type="hidden" name="shipping_zip" value="{shipping_zip}" />
+
+                        {!-- <input type="hidden" name="price" value="{cart_subtotal:plus_tax}" /> --}
+                        {if segment_3 == 'anz_egate' OR segment_3 == ''}
+                                <table class="shop_table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p class="form-row form-row-wide">
+                                                    <label for="type of cc" class="">Type of Credit Card <abbr class="required" title="required">*</abbr></label>
+                                                    <select name="card_type" id="" data-parsley-required="true">
+                                                        <option value="">Please Select</option>
+                                                        <option value="visa">Visa</option>
+                                                        <option value="mc">MasterCard</option>
+                                                        <option value="amex">American Express</option>
+                                                    </select>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                         <td>
+                                            <p class="form-row form-row-wide">
+                                                <label for="name on card" class="">Name on Credit Card <abbr class="required" title="required">*</abbr></label>
+                                                <input type="text" class="input-text " name="" data-parsley-required="true"/>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="form-row form-row-first">
+                                                <label for="cc" class="">Credit Card Number <abbr class="required" title="required">*</abbr></label>
+                                                <input type="text" class="input-text " name="credit_card_number" data-parsley-required="true" data-parsley-type="integer"/>
+                                            </p>
+                                            <p class="form-row form-row-last">
+                                                <label for="ccv" class="">Card Security Code (CCV)<abbr class="required" title="required">*</abbr></label>
+                                                <input type="text" class="input-text " name="CVV2" data-parsley-required="true" data-parsley-type="integer"/>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="form-row form-row-wide">Expiry Date <abbr class="required" title="required">*</abbr></p>
+                                            <p class="form-row form-row-first">
+                                                <label for="month" class="">Month (mm)</label>
+                                                <input type="text" class="input-text " name="expiration_month" data-parsley-required="true" data-parsley-type="integer" data-parsley-minlength="2" data-parsley-maxlength="2"/>
+                                            </p>
+                                            <p class="form-row form-row-last">
+                                                <label for="year" class="">Year (yy)</label>
+                                                <input type="text" class="input-text " name="expiration_year" data-parsley-required="true" data-parsley-type="integer" data-parsley-minlength="2" data-parsley-maxlength="2"/>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        {/if}
+                        {if logged_out}
+                        <input type="hidden" value="yes" name="create_user" class="create_member">
+                         <h3 style="float:left;">Create membership? </h3>
+                            <div class="create_membership">
+                                <label for="">No<input type="radio" value="no" name="create_user"  checked/></label>
+                                <label for="">Yes<input type="radio" value="yes" name="create_user" /></label>
+                            </div>
+                        <div class="clear"></div>
+                        <p>This will store your shipping and billing information for later (please note <b>we don't</b> store any payment details including any credit card information entered).</p>
+                        <br>
+                         <table class="shop_table create_member_table">
+                             <tr>
+                                <td>
+                                    <p class="form-row form-row-first"><label for="password" class="">Password<abbr class="required" title="required">*</abbr></label>
+                                    <input type="password" class="input-text " name="password"  id="password" data-parsley-minlength="6"/>
+                                    </p>
+                                    <p class="form-row form-row-last" id="shipping_last_name_field"><label for="password_confirm" class="">Confirm Password<abbr class="required" title="required">*</abbr></label>
+                                        <input type="password" class="input-text " name="password_confirm" data-parsley-minlength="6" data-parsley-equalto="#password"/>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        {/if}
+                        <input type="submit" class="button orange" value="Submit Order" />
+                        <a href="/cart/checkout" class="back">back</a>
+                        {/exp:cartthrob:checkout_form}
+                        {!-- {exp:cartthrob:debug_info} --}
+                        </div>
+                    </div> <!-- .et_pb_text -->
+                </div> <!-- .et_pb_column -->
+            </div> <!-- .et_pb_row -->
+        </div> <!-- .et_pb_section -->
+    </div> <!-- .entry-content -->
+</article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+{embed='includes/_footer'}

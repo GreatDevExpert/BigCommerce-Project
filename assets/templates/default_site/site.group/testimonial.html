@@ -1,0 +1,35 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        <article id="post-102" class="post-102 page type-page status-publish hentry">
+            <div class="entry-content">
+                {exp:channel:entries channel="testimonials" disable="categories|member_data|category_fields|pagination" limit="1" require_entry="yes"}
+                {if no_results} {redirect="404"} {/if}
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>{title}</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section -->
+                <div class="et_pb_section">
+                    <div class="et_pb_row">
+                        {grid_testimonials}
+                        <div class="et_pb_column et_pb_column_1_3 {if grid_testimonials:count % 3 == 0}testimonial_last_child{/if}">
+                            <div class="et_pb_testimonial ">
+                                {grid_testimonials:before_after_shot}<img src="{url}" alt="">{/grid_testimonials:before_after_shot}
+                                <p>{grid_testimonials:testimonial}</p>
+                                <p class="et_pb_testimonial_author">{grid_testimonials:author}</p>
+                            </div> <!-- .et_pb_testimonial -->
+                        </div> <!-- .et_pb_column -->
+                        {if grid_testimonials:count % 3 == 0}<div class="clearfix"></div>{/if}
+                        {/grid_testimonials}
+                    </div> <!-- .et_pb_row -->
+                </div> <!-- .et_pb_section -->
+                <p style="text-align:center;font-weight:700;">*These are testimonials from satisfied clients. Results can not be guaranteed and results may vary from person to person.</p>
+            </div> <!-- .entry-content -->
+            {/exp:channel:entries}
+        </article> <!-- .et_pb_post -->
+    </div> <!-- #main-content -->
+    {embed='includes/_footer'}

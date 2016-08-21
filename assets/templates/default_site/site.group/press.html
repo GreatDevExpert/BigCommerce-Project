@@ -1,0 +1,43 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        <article id="post-102" class="post-102 page type-page status-publish hentry">
+            <div class="entry-content">
+                {exp:channel:entries channel="press" dynamic="no" disable="categories|member_data|category_fields|pagination" limit="1"}
+                {if no_results} {redirect="404"} {/if}
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>{title}</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section -->
+                <div class="et_pb_section">
+                    <div class="et_pb_row">
+                        {press_grid}
+                        <div class="et_pb_column et_pb_column_1_3 {if press_grid:count % 3 == 0}testimonial_last_child{/if}">
+                            <div class="et_pb_testimonial ">
+                                <a href="{press_grid:url}" target="_blank"><img src="{press_grid:image}" alt="">
+									<span class="mask">
+										<span class="mask-h">
+											<span class="mask-f">
+												<p>{press_grid:title}</p>
+												<p class="subtitle">{press_grid:sub_title}</p>
+												<p class="et_pb_testimonial_author">{press_grid:date format="%F %d %Y"}</p>
+											</span>
+										</span>
+									</span>
+								</a>
+
+                            </div> <!-- .et_pb_testimonial -->
+                        </div> <!-- .et_pb_column -->
+                        {if press_grid:count % 3 == 0}<div class="clearfix"></div>{/if}
+                        {/press_grid}
+                    </div> <!-- .et_pb_row -->
+                </div> <!-- .et_pb_section -->
+            </div> <!-- .entry-content -->
+            {/exp:channel:entries}
+        </article> <!-- .et_pb_post -->
+    </div> <!-- #main-content -->
+    {embed='includes/_footer'}

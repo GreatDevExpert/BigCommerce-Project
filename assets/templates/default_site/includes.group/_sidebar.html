@@ -1,0 +1,35 @@
+ <div class="et_pb_column et_pb_column_1_3 sidebar_blog_section" id="sidebar">
+     <!-- <ul id="et-social-icons" class="et_pb_widget">
+        <li class="et-social-icon"><a class="facebook-link" href="{var_facebook}" target="_blank">facebook</a><li>
+        <li class="et-social-icon"><a class="twitter-link" href="{var_twitter}" target="_blank">twitter</a><li>
+        <li class="et-social-icon"><a class="instagram-link" href="{var_instagram}" target="_blank">instagram</a><li>
+        <li class="et-social-icon"><a class="youtube-link" href="{var_youtube}" target="_blank">youtube</a><li>
+        <li class="et-social-icon"><a class="pinterest-link" href="{var_pinterest}" target="_blank">pinterest</a><li>
+        <li class="et-social-icon"><a class="linkedin-link" href="{var_linkedin}" target="_blank">linkedin</a><li>
+    </ul> -->
+    <p class="et_pb_widget sidebar_intro">{var_sidebar_text}</p>
+    {exp:channel:entries entry_id="11" disable="categories|member_data|category_fields|pagination" dynamic="no"}
+    <a class="et_pb_widget image_button" href="/product/{url_title}">
+        <img src="/assets/images/buynow_on.jpg" alt="">
+        <img src="/assets/images/buynow_hover.jpg" alt="">
+    </a>
+    {/exp:channel:entries}
+    <div class="instafeed et_pb_widget">
+        <h3>Insta-feed</h3>
+        <a href="http://instagram.com/smartcleanse" target="_blank" title="instagram">follow @smartcleanse</a>
+        {exp:channel:entries channel="instagram" dynamic="no"}
+        <div class="instafeed_content">
+            {exp:ig_picpuller:media user_id='{author_id}' media_id='{cf_instagram}' use_stale_cache='yes'}
+                <img src="{ig_low_resolution}" alt="{ig_caption}" border="0" />
+            {/exp:ig_picpuller:media}
+            <p>{cf_image_description}</p>
+        </div>
+        {/exp:channel:entries}
+    </div>
+</div> <!-- .et_pb_column -->
+
+
+
+
+
+

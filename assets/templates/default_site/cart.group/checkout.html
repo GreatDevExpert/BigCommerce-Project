@@ -1,0 +1,188 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-77 page-template-default woocommerce-checkout woocommerce-page et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar et_includes_sidebar">
+ {embed='includes/_navigation'}
+ <div id="main-content">
+    <article id="post-77" class="post-77 page type-page status-publish hentry">
+        <div class="entry-content">
+            <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                    <div class="et_pb_row">
+                        <h1>Checkout</h1>
+                    </div>
+                </section>
+            </div> <!-- .et_pb_section --><div class="et_pb_section">
+            <div class="et_pb_row">
+                <div class="et_pb_column et_pb_column_4_4">
+                    <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                        <div class="woocommerce">
+                            <div class="toggle_form">
+                                {if logged_out}
+                                <div class="woocommerce-info">Returning customer? <a href="#" class="show_form">Click here to login</a></div>
+                                {exp:profile:login return="cart/checkout" class="login"}
+                                <p>If you have shopped with us before, please enter your details in the boxes below.</p>
+                                <p class="form-row form-row-first">
+                                    <label for="username">Email <span class="required">*</span></label>
+                                    <input type="text" class="input-text" name="username" id="username" value="{username}"/>
+                                </p>
+                                <p class="form-row form-row-last">
+                                    <label for="password">Password <span class="required">*</span></label>
+                                    <input class="input-text" type="password" name="password" id="password" />
+                                </p>
+                                <div class="clear"></div>
+
+                                <div class="clear"></div>
+                                <input type="submit" class="button alt" value="Login" /><a href="/member/forgot-password" class="back">Lost your password?</a>
+                                {/exp:profile:login}
+                                {/if}
+                            </div>
+                            <div class="toggle_form" style="display: none;">
+                                <div class="woocommerce-info">Have a coupon? <a href="#" class="show_form">Click here to enter your code</a></div>
+                                {exp:cartthrob:add_coupon_form
+                                return="cart/checkout"
+                                class="checkout_coupon"
+                            }
+                            <p class="form-row form-row-first">
+                                <input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" data-parsley-required="true" id="coupon_code" />
+                            </p>
+                            <p class="form-row form-row-last">
+                                <input type="submit" class="button call_to_action" value="Apply Coupon" />
+                            </p>
+
+                            <div class="clear"></div>
+                            {/exp:cartthrob:add_coupon_form}
+                        </div>
+                     {exp:cartthrob:save_customer_info_form
+                        class="checkout"
+                        return="/cart/submit/anz_egate"
+                    }
+                    <div class="col2-set" id="customer_details">
+                        <div class="col-1">
+                            <div class="woocommerce-billing-fields">
+                                <h3>Billing Address</h3>
+
+                                <p class="form-row form-row-first">
+                                    <label for="billing_first_name" class="">First Name <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" class="input-text " name="first_name" id="first_name" value="{first_name}" data-parsley-required="true" />
+                                </p>
+                                <p class="form-row form-row-last" >
+                                    <label for="billing_last_name" class="" >Last Name <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" class="input-text " name="last_name" id="last_name" value="{last_name}"data-parsley-required="true"  />
+                                </p><div class="clear"></div>
+                                <!--<p class="form-row form-row-wide"><label for="billing_company" class="">Company Name</label>
+                                    <input type="text" class="input-text " name="company" id="company" value="{company}"  />
+                                </p>-->
+                                <p class="form-row form-row-wide address-field" >
+                                    <label for="billing_address_1" class="">Address <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" class="input-text " name="address" id="address_1" placeholder="Street address"  value="{address}"  data-parsley-required="true"/>
+                                </p>
+                                <p class="form-row form-row-wide address-field" >
+                                    <input type="text" class="input-text " name="address2" id="address_2" placeholder="Apartment, suite, unit etc. (optional)"  value="{address2}"  />
+                                </p>
+                                <p class="form-row form-row-wide address-field" >
+                                    <label for="billing_city" class="">Suburb / City <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" class="input-text " name="city" id="city" placeholder="Suburb / City"  value="{city}" data-parsley-required="true" />
+                                </p>
+                                <p class="form-row form-row-first address-field" >
+                                    <label for="billing_state" class="">State<abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" name="state"  data-parsley-required="true" value="{state}" id="state">
+                                </p>
+                                <p class="form-row form-row-last address-field " >
+                                    <label for="billing_postcode" class="">Postcode / Zip <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" class="input-text " name="zip" id="zip" placeholder="Postcode / Zip"  value="" data-parsley-required="true" />
+                                </p><div class="clear"></div>
+                                <p class="form-row form-row-wide address-field" id="billing_country_field">
+                                    <label for="billing_country" class="">Country <abbr class="required" title="required">*</abbr></label>
+                                    {exp:cartthrob:country_select name="country_code" id="country" selected="{country_code}" class=""}
+                                </p>
+                                <p class="form-row form-row-first " >
+                                    <label for="billing_email" class="">Email Address <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" class="input-text " name='email_address' id="email_address" value="{email_address}" data-parsley-type="email" data-parsley-required="true" />
+                                </p>
+                                <p class="form-row form-row-last " >
+                                    <label for="billing_phone" class="">Phone <abbr class="required" title="required">*</abbr></label>
+                                    <input type="text" class="input-text " name="phone" id="phone" value="{phone}" data-parsley-required="true" />
+                                </p>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                            <div class="col-2">
+                                <div class="woocommerce-shipping-fields">
+                                    <h3 id="ship-to-different-address">
+                                        Shipping address same as billing address?
+                                    </h3>
+                                    <div class="ship-to-different-address-wrapper">
+                                        <label for="">Yes<input type="radio" value="1" name="use_billing_info" checked /></label>
+                                        <label for="">No<input type="radio" value="0" name="use_billing_info" /></label>
+                                    </div>
+                                    <div class="shipping_address">
+                                        <p class="form-row form-row-first">
+                                            <label for="shipping_first_name" class="">First Name <abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" class="input-text " name="shipping_first_name" id="shipping_first_name" value="{shipping_first_name}" />
+                                        </p>
+                                        <p class="form-row form-row-last" id="shipping_last_name_field">
+                                            <label for="shipping_last_name" class="">Last Name <abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" class="input-text " name="shipping_last_name" id="shipping_last_name" value="{shipping_last_name}" />
+                                        </p>
+                                        <div class="clear"></div>
+                                        <!--<p class="form-row form-row-wide" id="shipping_company_field">
+                                            <label for="shipping_company" class="">Company Name</label>
+                                            <input type="text" class="input-text not-required" name="shipping_company" id="shipping_company" value="{shipping_company}"  />
+                                        </p>-->
+                                        <p class="form-row form-row-wide address-field" id="shipping_address_1_field">
+                                            <label for="shipping_address_1" class="">Address <abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" class="input-text " name="shipping_address" id="shipping_address_1" placeholder="Street address"  value="{shipping_address}" />
+                                        </p>
+                                        <p class="form-row form-row-wide address-field" id="shipping_address_2_field">
+                                            <input type="text" class="input-text not-required" name="shipping_address2" id="shipping_address_2" placeholder="Apartment, suite, unit etc. (optional)"  value="{shipping_address2}" />
+                                        </p>
+                                        <p class="form-row form-row-wide address-field" id="shipping_city_field">
+                                            <label for="shipping_city" class="">Suburb / City <abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" class="input-text " name="shipping_city" id="shipping_city" placeholder="Suburb / City"  value="{shipping_city}" />
+                                        </p>
+                                        <p class="form-row form-row-first address-field validate-required validate-state" id="shipping_state_field">
+                                            <label for="billing_state" class="">State<abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" name="shipping_state" id="shipping_state" value="{shipping_state}">
+                                        </p>
+                                        <p class="form-row form-row-last address-field validate-required validate-postcode" id="shipping_postcode_field">
+                                            <label for="shipping_postcode" class="">Postcode / Zip <abbr class="required" title="required">*</abbr></label>
+                                            <input type="text" class="input-text " name="shipping_zip" id="shipping_zip" placeholder="Postcode / Zip"  value="" />
+                                        </p>
+                                        <p class="form-row form-row-wide address-field">
+                                            <label for="billing_country" class="">Country <abbr class="required" title="required">*</abbr></label>
+                                            {exp:cartthrob:country_select name="shipping_country_code" id="shipping _country" selected="{shipping_country_code}"}
+                                        </p>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <input type="submit" class="button orange" value="Proceed with Checkout" />
+                            {/exp:cartthrob:save_customer_info_form }
+                        </div>
+                    </div> <!-- .et_pb_text -->
+                </div> <!-- .et_pb_column -->
+            </div> <!-- .et_pb_row -->
+        </div> <!-- .et_pb_section -->
+    </div> <!-- .entry-content -->
+</article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+<!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 961433403;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/961433403/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+{embed='includes/_footer'}

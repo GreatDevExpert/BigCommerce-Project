@@ -1,0 +1,60 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        <article id="post-79" class="post-79 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>My Account</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section --><div class="et_pb_section">
+                <div class="et_pb_row">
+                    <div class="et_pb_column et_pb_column_2_3">
+                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                            <div class="woocommerce">
+                                <p class="myaccount_user">
+                                    {exp:profile:view}
+                                    Hello {member_first_name} {member_last_name}<strong></strong>. From your account dashboard you can view your recent orders, manage your shipping and billing addresses and <a href="/member/profile">edit your password and account details</a>.</p>
+                                    <h2>My Addresses</h2>
+                                    <p class="myaccount_address">The following addresses will be used on the checkout page by default.</p>
+                                    <div class="col2-set addresses">
+                                        <div class="col-1 address">
+                                            <header class="title">
+                                                <h3>Billing Address</h3>
+                                                <a href="/member/account-billing" class="edit">Edit</a>
+                                            </header>
+                                            <address>
+                                                {member_first_name} {member_last_name}<br>
+                                                {member_address}<br>
+                                                {member_city} {member_state} {member_zip}<br>
+                                                {exp:cartthrob:convert_country_code country_code="{member_country_code}"}
+                                            </address>
+                                        </div>
+                                        <div class="col-2 address">
+                                            <header class="title">
+                                                <h3>Shipping Address</h3>
+                                                <a href="/member/account-shipping" class="edit">Edit</a>
+                                            </header>
+                                            <address>
+                                                {member_shipping_first_name} {member_shipping_last_name}<br>
+                                                {member_shipping_address}<br>
+                                                {member_shipping_city} {member_shipping_state} {member_shipping_zip}<br>
+                                                {exp:cartthrob:convert_country_code country_code="{member_shipping_country_code}"}
+                                            </address>
+                                        </div>
+                                    </div>
+                                    {/exp:profile:view}
+                                </div>
+                            </div> <!-- .et_pb_text -->
+                        </div> <!-- .et_pb_column -->
+                        <div class="et_pb_column et_pb_column_1_3">
+                        </div> <!-- .et_pb_column -->
+                    </div> <!-- .et_pb_row -->
+                </div> <!-- .et_pb_section -->
+            </div> <!-- .entry-content -->
+        </article> <!-- .et_pb_post -->
+    </div>
+{embed='includes/_footer'}

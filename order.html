@@ -1,0 +1,134 @@
+%%Panel.Preheader%%
+<head>
+    <style type = 'text/css'>
+        p.InfoMessage
+        {
+        padding:20px;
+        padding-left:45px;
+        }
+    </style>
+</head>
+<body class = 'page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome' style='padding-top: 80px;'>
+    
+    
+    <div class="page">
+        %%Panel.Newheader%%
+            <div class="main">
+                <div class="inner">
+                    %%Panel.WrapperBanner%%
+                    <div class="Content Widest" id="LayoutColumn2">
+                        <div class="Block" style = 'padding-top:50px'>
+                            <h1 class="TitleHeading">%%LNG_ThanksForYourOrder%%%%GLOBAL_CustomerName%%</h1>
+                            
+                            <div class="BlockContent full-width">
+                                <p class="ErrorMessage" style="display:%%GLOBAL_HideError%%">
+                                    %%GLOBAL_ErrorMessage%%
+                                </p>
+
+                                <div style="display:%%GLOBAL_HidePaidOrderConfirmation%%">
+                                    <div class="NotifyMessage">
+                                        <p><span>%%LNG_YourOrderNumber%%</span> <a href="%%GLOBAL_ShopPath%%/account.php?action=view_order&order_id=%%GLOBAL_OrderId%%">%%GLOBAL_OrderId%%</a></p>
+
+                                        <p style="display:%%GLOBAL_HidePhysicalOrderConfirmation%%">
+                                            %%GLOBAL_PhysicalOrderConfirmation%%
+                                        </p>
+
+                                        <p style="display:%%GLOBAL_HideDigitalOrderConfirmation%%">
+                                            %%GLOBAL_DigitalOrderConfirmation%%
+                                        </p>
+                                        <p style="display:%%GLOBAL_HideDigitalOrderDownloadLink%%">
+                                            <br>
+                                            <a href="%%GLOBAL_ViewFullOrderPath%%">%%LNG_DownloadTheItemsYouOrdered%%</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div style="display: %%GLOBAL_HideAwaitingPayment%%">
+                                    <p class="SuccessMessage" style="display:%%GLOBAL_HideSuccess%%">
+                                        %%LNG_JustSentAnEmailConfirmation%%
+                                    </p>
+                                    %%LNG_OrderAwaitingPayment%%
+                                </div>
+
+                                %%GLOBAL_OrderConfirmationDetails%%
+                                %%SNIPPET_OfflinePaymentMessage%%
+                            </div>
+                        </div>
+                        <div class="full-width">
+                            <span style = 'display:none'>
+                            %%Panel.ShareProductById%%
+                                </span> <!---added-->
+                            %%Panel.SimilarMultiProductsByCustomerViews%%
+                            <div class="txtR mbm">
+                                <a href="%%GLOBAL_ShopPath%%" class="button">%%GLOBAL_ContinueShoppingOnStoreName%%</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+           
+        %%Panel.Newfooter%%
+    </div>
+    
+</body>
+<script src = 'https://code.jquery.com/jquery-1.12.3.js'></script>
+<script type = 'text/javascript'>
+var authToken = 'f4f1d8df-d329-4b30-babe-c45bd6af1f60';
+    
+var globalOrderID = %%GLOBAL_OrderId%%;
+$.get('https://api:f8e3372296ef515a3e86ff69175c95060ec38d99@store-an3hj8.mybigcommerce.com/api/v2/orders/%%GLOBAL_OrderId%%.json', function(a1,b)
+{
+    
+    if (b == 'success')
+    {
+        $.get(a1['shipping_addresses']['url'], function(a,b)
+        {
+            var order = {};
+            if (b == 'success')
+            {
+                order['orderNumber'] = globalOrderID;
+                order['siteName'] = 'Matraville';
+                order['customerCode'] = 'SMC';
+                order['customerName'] = 'Smart Cleanse';
+                order['deliveryName'] = a['first_name'] + ' ' + a['last_name'];
+                order['deliveryddress'] = a['street_1'] + ' ' + a['street_2'];
+                order['deliverySuburb'] = a['city'];
+                order['deliveryState'] = a['state'];
+                order['deliveryPostcode'] = a['zip'];
+                order['deliveryPhone'] = a['phone'];
+                
+                order['freightTypeCode'] = 'AUSPOST';
+                order['deliveryNotes'] = a['shipping_method'];
+                order['orderLines'] = [{
+                    'barcode' : '9369999046033',
+    'quantity' : a['items_total']
+                }];
+
+
+                params = {authToken : authToken, order : order};
+
+                $.ajax({method: "POST", type : "POST", crossDomain: true, dataType: 'json', data : params,  url: 'https://Savannah:savannah@impact.scantracksystems.com/api/v1/service.svc/orders/add.json'}).done(
+                                    
+    
+                //$.post('https://Savannah:savannah@impact.scantracksystems.com/api/v1/service.svc/orders/add.json', params, 
+    function(a,b)
+                {
+                    console.log(a);
+                    console.log(b);
+                })
+            }
+
+
+
+        });
+    
+    
+    
+    
+    
+    }
+});
+
+</script>
+</html>

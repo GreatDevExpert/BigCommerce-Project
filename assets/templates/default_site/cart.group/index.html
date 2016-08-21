@@ -1,0 +1,100 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        <article id="post-75" class="post-75 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="et_pb_section beige_header et_pb_inner_shadow et_pb_fullwidth_section">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>Your Cart</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section --><div class="et_pb_section">
+                <div class="et_pb_row">
+                    <div class="et_pb_column et_pb_column_4_4">
+                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                            <div class="woocommerce">
+                                {exp:cartthrob:cart_items_info}
+                                    {if no_results}
+                                    <h3>There is nothing in your cart.</h3>
+                                    {/if}
+                                    <table class="shop_table cart" cellspacing="0">
+                                        {if first_row}
+                                         {exp:cartthrob:update_cart_form  return="cart/index"}
+                                        <thead>
+                                            <tr>
+                                                <th class="product-remove">&nbsp;</th>
+                                                <th class="product-thumbnail">&nbsp;</th>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-price">Price</th>
+                                                <th class="product-quantity">Quantity</th>
+                                                <th class="product-subtotal">Subtotal</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {/if}
+                                            <tr class="cart_item">
+                                                <td class="product-remove">
+                                                    <a href="{path=cart/delete_from_cart/{row_id}}" class="remove" title="Remove this item">×</a>
+                                                </td>
+                                                <td class="product-thumbnail">
+                                                    {file_main_product_image}<a href="/product/{url_title}"><img src="{url}" alt="Product Image Smart Cleanse" width="" class="woocommerce-placeholder wp-post-image" height=""></a>{/file_main_product_image}
+                                                </td>
+                                                <td class="product-name"><a href="/product/{url_title}">{title}</a></td>
+                                                <td class="product-price">
+                                                    <span class="amount">{item_price:plus_tax}</span>
+                                                </td>
+                                                <td class="product-quantity">
+                                                    <div class="quantity buttons_added">
+                                                        <input type="number" name="quantity[{row_id}]" value="{quantity}" title="Qty" class="input-text qty text" size="3">
+                                                    </div>
+                                                </td>
+                                                <td class="product-subtotal"><span class="amount">{cart_subtotal:plus_tax}</span></td>
+                                            </tr>
+                                             {package}
+                                             {if sub:entry_id==1261}
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td>
+                                                    <img src="https://smartcleanse.com.au/assets/images/Diary_Cover_Smart_Cleanse_2.jpg" class="woocommerce-placeholder wp-post-image" height="75">
+                                                </td>
+                                                <td colspan="4">
+                                                    FREE: {sub:title}
+                                                </td>
+                                            </tr>
+                                            {/if}
+                                            {/package}
+                                            {if last_row}
+                                            <tr>
+                                                <td colspan="6" class="actions">
+                                                    <div class="coupon">
+                                                        <label for="coupon_code">Coupon:</label>
+                                                        <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code" >
+                                                        <input type="submit" class="button call_to_action" name="apply_coupon" value="Apply Coupon">
+                                                    </div>
+                                                    <input type="submit" class="button call_to_action" value="Update Cart">
+                                                    <a href="/cart/checkout"class="checkout-button button">Checkout</a>
+                                                </td>
+                                            </tr>
+                                            {exp:cartthrob:coupon_info}
+                                            {if no_results}
+                                            {/if}
+                                            <tr>
+                                                <td colspan="6">You will redeem the value of {discount_amount} upon checkout.</td>
+                                            </tr>
+                                            {/exp:cartthrob:coupon_info}
+                                        </tbody>
+                                        {/exp:cartthrob:update_cart_form}
+                                            {/if}
+                                    </table>
+                               {/exp:cartthrob:cart_items_info}
+
+                        </div> <!-- .et_pb_text -->
+                    </div> <!-- .et_pb_column -->
+                </div> <!-- .et_pb_row -->
+            </div> <!-- .et_pb_section -->
+        </div> <!-- .entry-content -->
+    </article> <!-- .et_pb_post -->
+</div>
+{embed='includes/_footer'}

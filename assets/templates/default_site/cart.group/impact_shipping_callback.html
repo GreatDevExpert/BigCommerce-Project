@@ -1,0 +1,90 @@
+<?php
+header('Content-Type: application/json');
+
+	$a = file_get_contents('php://input');
+	$b = json_decode($a, true);
+
+	file_put_contents('DEBUG.txt', print_r($_SERVER,true), FILE_APPEND);
+	file_put_contents('DEBUG2.txt', print_r($b,true), FILE_APPEND);
+// Check for HTTP auth.
+if (!isset($_SERVER['PHP_AUTH_USER']) || ($_SERVER['PHP_AUTH_USER'] != "impact" && $_SERVER['PHP_AUTH_PW'] == 'Eeng8co9')) {
+	file_put_contents('FAILED.txt', print_r($b,true), FILE_APPEND);
+
+	header('WWW-Authenticate: Basic realm="Impact Callback"');
+	header('HTTP/1.0 401 Unauthorized');
+	echo json_encode(['status'=>'ERROR', 'errorMessage' => '401 unauthorized']);
+	exit;
+} else {
+	file_put_contents('SUCCESS.txt', print_r($b,true), FILE_APPEND);
+}
+
+// Fetch the POST body.
+$rawBody = file_get_contents('php://input');
+
+$decoded = json_decode($rawBody, true);
+if (!is_null($decoded) && isset($decoded['order'])) {
+	$EE = ee();
+	$EE->load->add_package_path(PATH_THIRD . 'cartthrob');
+	$EE->load->model('order_model');
+	$EE->load->library('cartthrob_loader');
+	$EE->load->library('cartthrob_emails');
+
+	// CAUTION: dirname(__FILE__) does not match the filesystem path of this file.
+	require_once(dirname(__FILE__) . '/../../../third_party/cartthrob/ext.cartthrob.php');
+
+	// From the posted body, fetch out the desired information.
+	$orderNumber = $decoded['order']['orderNumber'];
+	$trackingNumber = $decoded['order']['consignmentNumber'];
+	$postageType = $decoded['order']['freightTypeCode'];
+
+	$order = $EE->order_model->get_orders(array("channel_titles.title" => $orderNumber));
+
+	if ($order !== false) {
+		$keys = array_keys($order);
+		$key = $keys[0];
+		$order = $order[$key];
+
+		file_put_contents('$order.txt', print_r($order,true), FILE_APPEND);
+
+		// Update the order with the tracking code and postage type.
+		$this->EE->load->model('cartthrob_entries_model');
+
+		$this->EE->cartthrob_entries_model->update_entry($order['entry_id'], array(
+			'order_tracking_number' => $trackingNumber,
+			'order_shipping_note' => $postageType,
+			'status' => 'Shipped'
+		));
+
+		// Crude hack to convince Cartthrob to send the appropriate email notifications.
+		$EE->session->cache['cartthrob'][$order['entry_id']]['status'] = $order['status'];
+		$order['revision_post'] = array(
+			'status' => 'Shipped',
+			'previous_status' => 'open',
+			'entry_id' => $order['entry_id'],
+			'order_tracking_number' => $trackingNumber,
+			'order_shipping_note' => $postageType,
+		);
+		$cte = new Cartthrob_ext();
+		$cte->entry_submission_end($order['entry_id'], array(), $order);
+		echo json_encode(['status'=>'OK']);
+	} else {
+		echo json_encode(['status'=>'ERROR', 'errorMessage' => 'invalid order']);
+	}
+} else {
+	echo json_encode(['status'=>'ERROR', 'errorMessage' => 'invalid data']);
+}
+
+/*
+
+// To test this, you can use the following command line to POST the data.
+// Replace the URL with your dev site, and the order number with the order title.
+
+curl -X POST \
+-u impact:Eeng8co9 \
+-H "Content-Type: application/json" \
+-d '{"order":{"orderNumber":"Order #1543","consignmentNumber":"TEST01","freightTypeCode":"AUSPOST"}}' \
+http://test.smartcleanse.com.au/cart/impact_shipping_callback
+
+*/
+
+?>

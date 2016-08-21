@@ -1,0 +1,68 @@
+{embed='includes/_doc-header'}
+<body class="ingredients page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+    <div id="main-content">
+        <article id="post-38" class="post-38 page type-page status-publish hentry">
+            <div class="entry-content">
+                {exp:channel:entries
+                    channel="ingredients"
+                    dynamic="no"
+                    fixed_order="2|3|4|5|6"
+                }
+                {if count == 1}
+                <div class="et_pb_section beige_header et_pb_inner_shadow et_pb_fullwidth_section">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center">
+                        <div class="et_pb_row">
+                            <h1>{channel}</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section -->
+                {/if}
+                <div class="et_pb_section">
+                    <div class="et_pb_row">
+                        <div class="et_pb_column et_pb_column_4_4">
+                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                <h2 style="color:#{cf_header_color}">{title}</h2>
+                            </div> <!-- .et_pb_text -->
+                        </div> <!-- .et_pb_column -->
+                    </div>
+                    {grid_ingredients}
+                    <div class="et_pb_row ingredients_header">
+                        <div class="et_pb_column et_pb_column_4_4">
+                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                <h3>{grid_ingredients:title}</h3>
+                                {if grid_ingredients:scientific_name}<h4>{grid_ingredients:scientific_name}</h4>{/if}
+                            </div> <!-- .et_pb_text -->
+                        </div> <!-- .et_pb_column -->
+                    </div> <!-- .et_pb_row -->
+                    <div class="et_pb_row ingredients_content">
+                        <div class="et_pb_column et_pb_column_1_3">
+                            <img src="{grid_ingredients:ingredient_image}" alt="" class="et-waypoint et_pb_image et_pb_animation_left et-animated">
+                        </div> <!-- .et_pb_column -->
+                        <div class="et_pb_column et_pb_column_1_3">
+                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                {grid_ingredients:ingredient_copy1}
+                            </div> <!-- .et_pb_text -->
+                        </div> <!-- .et_pb_column -->
+                        <div class="et_pb_column et_pb_column_1_3">
+                                {grid_ingredients:ingredient_copy2}
+                        </div> <!-- .et_pb_column -->
+                    </div> <!-- .et_pb_row -->
+                    {/grid_ingredients}
+                </div> <!-- .et_pb_section -->
+                {/exp:channel:entries}
+                {exp:channel:entries limit="1"}
+                <div class="et_pb_section">
+                    <div class="et_pb_row">
+                        <div class="et_pb_column">
+                            <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                                {cf_body_copy_full}
+                            </div> <!-- .et_pb_text -->
+                        </div> <!-- .et_pb_column -->
+                    </div> <!-- .et_pb_row -->
+                </div>
+                {/exp:channel:entries}
+            </div> <!-- .entry-content -->
+        </article> <!-- .et_pb_post -->
+    </div>
+{embed='includes/_footer'}

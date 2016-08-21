@@ -1,0 +1,80 @@
+{embed='includes/_doc-header'}
+<body class="page page-id-2 page-template-default et_fixed_nav et_pb_pagebuilder_layout et_right_sidebar chrome et_includes_sidebar" style="padding-top: 80px;">
+    {embed='includes/_navigation'}
+     <div id="main-content">
+        <article id="post-79" class="post-79 page type-page status-publish hentry">
+            <div class="entry-content">
+                <div class="et_pb_section et_pb_inner_shadow et_pb_fullwidth_section beige_header">
+                    <section class="et_pb_fullwidth_header et_pb_text_align_center ">
+                        <div class="et_pb_row">
+                            <h1>My Account - Billing Address</h1>
+                        </div>
+                    </section>
+                </div> <!-- .et_pb_section --><div class="et_pb_section">
+                <div class="et_pb_row">
+                    <div class="et_pb_column et_pb_column_2_3">
+                        <div class="et_pb_text et_pb_bg_layout_light et_pb_text_align_left">
+                            <div class="woocommerce">
+                                {exp:profile:edit return="/member/my-account/"}
+                                    <h3>Billing Address</h3>
+                                    <p class="form-row form-row-wide address-field">
+                                        <label for="member_country_code" class="">Country <abbr class="required" title="required">*</abbr></label>
+                                        {exp:cartthrob:country_select name="member_country_code" id="member_country_code" selected="{member_country_code}" }
+                                    </p>
+                                    <p class="form-row form-row-first">
+                                        <label for="member_first_name" class="">First Name <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_first_name" id="member_first_name" placeholder=""  value="{member_first_name}"  data-parsley-required="true" />
+                                    </p>
+                                    <p class="form-row form-row-last" >
+                                        <label for="member_last_name" class="">Last Name <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_last_name" id="member_last_name" placeholder=""  value="{member_last_name}"  data-parsley-required="true" />
+                                    </p>
+                                    <div class="clear"></div>
+                                    <p class="form-row form-row-wide" id="billing_company_field">
+                                        <label for="member_company" class="">Company Name</label>
+                                        <input type="text" class="input-text " name="member_company" id="member_company" placeholder=""  value="{member_company}"  data-parsley-required="true" />
+                                    </p>
+                                    <p class="form-row form-row-wide address-field">
+                                        <label for="member_address" class="">Address <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_address" id="member_address" placeholder="Street address"  value="{member_address}"  data-parsley-required="true" />
+                                    </p>
+                                    <p class="form-row form-row-wide address-field" id="billing_address_2_field">
+                                        <input type="text" class="input-text " name="member_address2" id="member_address2" placeholder="Apartment, suite, unit etc. (optional)"  value="{member_address2}"   data-parsley-required="true"/>
+                                    </p>
+                                    <p class="form-row form-row-wide address-field" id="billing_city_field">
+                                        <label for="member_city" class="">Town / City <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_city" id="member_city" placeholder="Town / City"  value="{member_city}"  data-parsley-required="true" />
+                                    </p>
+                                    <p class="form-row form-row-first address-field">
+                                        <label for="member_state" class="">State / County <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" name="member_state" id="member_state"  value="{member_state}" data-parsley-required="true">
+                                    </p>
+                                    <p class="form-row form-row-last address-field">
+                                        <label for="member_zip" class="">Postcode / Zip <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_zip" id="member_zip" placeholder="Postcode / Zip"  value="{member_zip}"  data-parsley-required="true" />
+                                    </p>
+                                    <div class="clear"></div>
+                                    <p class="form-row form-row-first">
+                                        <label for="email" class="">Email Address <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="email" id="email" placeholder=""  value="{email}"   data-parsley-required="true" data-parsley-type="email"/>
+                                    </p>
+                                    <p class="form-row form-row-last" >
+                                        <label for="member_phone" class="">Phone <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" class="input-text " name="member_phone" id="member_phone" placeholder=""  value="{member_phone}"  data-parsley-required="true" />
+                                    </p>
+                                    <div class="clear"></div>
+                                    <p>
+                                        <input type="submit" class="button" name="save_address" value="Save Address" />
+                                        <a href="/member/my-account" class="back">cancel</a>
+                                    </p>
+                                {/exp:profile:edit}
+                            </div>
+                        </div> <!-- .et_pb_text -->
+                    </div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_3">
+                </div> <!-- .et_pb_column -->
+            </div> <!-- .et_pb_row -->
+        </div> <!-- .et_pb_section -->
+    </div> <!-- .entry-content -->
+</article> <!-- .et_pb_post -->
+</div> <!-- #main-content -->
+{embed='includes/_footer'}
